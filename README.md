@@ -16,7 +16,7 @@ This is a production-ready RESTful API for an e-commerce platform that allows us
 
 ### 1. Clone the Repository  
 ```bash
-git clone <repo-url>
+git clone https://github.com/sshubham17/assignement.git
 cd e-commerce-api
 ```
 
@@ -41,11 +41,6 @@ sudo docker run -p 8000:80 my-fastapi-app
 - **POST /products** → Add a new product  
 - **POST /orders** → Place an order  
 
-## Testing  
-Run tests using:  
-```bash
-pytest
-```
 
 ## Author  
-Your Name  
+Shubham Chincholkar  
