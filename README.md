@@ -37,9 +37,44 @@ sudo docker run -p 8000:80 my-fastapi-app
 ```
 
 ## API Endpoints  
-- **GET /products** → Retrieve all products  
-- **POST /products** → Add a new product  
-- **POST /orders** → Place an order  
+- **POST api/v1/setup -> create database
+- **GET api/v1/products** → Retrieve all products  
+- **POST api/v1/products** → Add a new product  
+- **POST api/v1/orders** → Place an order  
+
+## Sample curl URL
+# Create database
+curl --location --request POST 'http://127.0.0.1:8000/api/v1/setup'
+
+# Retrieve all products
+curl --location 'http://127.0.0.1:8000/api/v1/products' \
+     --header 'domain: zesto'
+
+# Add a new product
+curl --location 'http://127.0.0.1:8000/api/v1/products' \
+     --header 'domain: zesto' \
+     --header 'Content-Type: application/json' \
+     --data '{
+         "name": "Laptop",
+         "description": "A high-performance laptop",
+         "price": 1200.50,
+         "stock": 10
+     }'
+
+# Place an order
+curl --location 'http://127.0.0.1:8000/api/v1/orders' \
+     --header 'domain: zesto' \
+     --header 'Content-Type: application/json' \
+     --data '{
+         "products": [
+             {
+                 "product_id": 1,
+                 "quantity": 2
+             }
+         ],
+         "total_price": 2401.00,
+         "status": "pending"
+     }'
 
 
 ## Author  
